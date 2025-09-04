@@ -39,7 +39,7 @@ class EnvironmentBanner extends StatelessWidget {
   /// 构建环境标签
   Widget _buildEnvironmentTag(BuildContext context) {
     final statusBarHeight = MediaQuery.of(context).padding.top;
-    
+
     return Positioned(
       top: _getTopPosition(statusBarHeight),
       left: _getLeftPosition(),
@@ -297,8 +297,10 @@ class QuickEnvironmentInfo extends StatelessWidget {
 enum EnvironmentBannerStyle {
   /// 右上角
   topRight,
+
   /// 左上角
   topLeft,
+
   /// 右下角
   bottomRight,
 }

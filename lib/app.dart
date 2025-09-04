@@ -19,8 +19,7 @@ class MyApp extends ConsumerWidget {
 
     return MaterialApp(
       title: AppConfig.instance.appName,
-      debugShowCheckedModeBanner:
-          AppConfig.instance.debugShowCheckedModeBanner,
+      debugShowCheckedModeBanner: AppConfig.instance.debugShowCheckedModeBanner,
       showPerformanceOverlay: AppConfig.instance.showPerformanceOverlay,
 
       // 主题配置
@@ -40,7 +39,7 @@ class MyApp extends ConsumerWidget {
       // 路由配置
       onGenerateRoute: AppRouter.generateRoute,
       initialRoute: AppRouter.home,
-      
+
       // 使用 builder 来包装环境横幅
       builder: (context, child) {
         return EnvironmentBanner(child: child ?? const SizedBox.shrink());

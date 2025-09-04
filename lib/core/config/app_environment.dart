@@ -2,8 +2,10 @@
 enum AppEnvironment {
   /// 开发环境
   development,
+
   /// 灰度环境
   staging,
+
   /// 正式环境
   production,
 }

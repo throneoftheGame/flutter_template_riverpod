@@ -51,10 +51,5 @@ Future<void> mainWithEnvironment([AppEnvironment? environment]) async {
     observers.add(TalkerRiverpodObserver(talker: AppLogger.talker));
   }
 
-  runApp(
-    ProviderScope(
-      observers: observers,
-      child: const MyApp(),
-    ),
-  );
+  runApp(ProviderScope(observers: observers, child: const MyApp()));
 }

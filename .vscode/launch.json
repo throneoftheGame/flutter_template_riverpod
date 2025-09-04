@@ -6,21 +6,17 @@
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
-      "args": [
-        "--dart-define=ENVIRONMENT=development"
-      ],
+      "args": ["--dart-define=ENVIRONMENT=development"],
       "env": {
         "ENVIRONMENT": "development"
       }
     },
     {
-      "name": "Flutter Staging", 
+      "name": "Flutter Staging",
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
-      "args": [
-        "--dart-define=ENVIRONMENT=staging"
-      ],
+      "args": ["--dart-define=ENVIRONMENT=staging"],
       "env": {
         "ENVIRONMENT": "staging"
       }
@@ -30,9 +26,7 @@
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
-      "args": [
-        "--dart-define=ENVIRONMENT=production"
-      ],
+      "args": ["--dart-define=ENVIRONMENT=production"],
       "env": {
         "ENVIRONMENT": "production"
       }
