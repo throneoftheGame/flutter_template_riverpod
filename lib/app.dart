@@ -17,30 +17,34 @@ class MyApp extends ConsumerWidget {
     final themeMode = ref.watch(themeModeProvider);
     final locale = ref.watch(localeProvider);
 
-    return EnvironmentBanner(
-      child: MaterialApp(
-        title: AppConfig.instance.appName,
-        debugShowCheckedModeBanner: AppConfig.instance.debugShowCheckedModeBanner,
-        showPerformanceOverlay: AppConfig.instance.showPerformanceOverlay,
+    return MaterialApp(
+      title: AppConfig.instance.appName,
+      debugShowCheckedModeBanner:
+          AppConfig.instance.debugShowCheckedModeBanner,
+      showPerformanceOverlay: AppConfig.instance.showPerformanceOverlay,
 
-        // 主题配置
-        theme: _buildLightTheme(),
-        darkTheme: _buildDarkTheme(),
-        themeMode: themeMode,
+      // 主题配置
+      theme: _buildLightTheme(),
+      darkTheme: _buildDarkTheme(),
+      themeMode: themeMode,
 
-        // 国际化配置
-        locale: locale,
-        localizationsDelegates: const [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [Locale('en', 'US'), Locale('zh', 'CN')],
+      // 国际化配置
+      locale: locale,
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [Locale('en', 'US'), Locale('zh', 'CN')],
 
-        // 路由配置
-        onGenerateRoute: AppRouter.generateRoute,
-        initialRoute: AppRouter.home,
-      ),
+      // 路由配置
+      onGenerateRoute: AppRouter.generateRoute,
+      initialRoute: AppRouter.home,
+      
+      // 使用 builder 来包装环境横幅
+      builder: (context, child) {
+        return EnvironmentBanner(child: child ?? const SizedBox.shrink());
+      },
     );
   }
 
