@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'core/config/app_config.dart';
 import 'core/constants/app_constants.dart';
 import 'core/utils/app_router.dart';
 import 'shared/providers/theme_provider.dart';
 import 'shared/providers/locale_provider.dart';
+import 'shared/widgets/environment_banner.dart';
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
@@ -15,27 +17,30 @@ class MyApp extends ConsumerWidget {
     final themeMode = ref.watch(themeModeProvider);
     final locale = ref.watch(localeProvider);
 
-    return MaterialApp(
-      title: AppConstants.appName,
-      debugShowCheckedModeBanner: false,
+    return EnvironmentBanner(
+      child: MaterialApp(
+        title: AppConfig.instance.appName,
+        debugShowCheckedModeBanner: AppConfig.instance.debugShowCheckedModeBanner,
+        showPerformanceOverlay: AppConfig.instance.showPerformanceOverlay,
 
-      // 主题配置
-      theme: _buildLightTheme(),
-      darkTheme: _buildDarkTheme(),
-      themeMode: themeMode,
+        // 主题配置
+        theme: _buildLightTheme(),
+        darkTheme: _buildDarkTheme(),
+        themeMode: themeMode,
 
-      // 国际化配置
-      locale: locale,
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [Locale('en', 'US'), Locale('zh', 'CN')],
+        // 国际化配置
+        locale: locale,
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [Locale('en', 'US'), Locale('zh', 'CN')],
 
-      // 路由配置
-      onGenerateRoute: AppRouter.generateRoute,
-      initialRoute: AppRouter.home,
+        // 路由配置
+        onGenerateRoute: AppRouter.generateRoute,
+        initialRoute: AppRouter.home,
+      ),
     );
   }
 

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
-import '../constants/app_constants.dart';
+import '../config/app_config.dart';
 import '../utils/logger.dart';
 import 'interceptors/auth_interceptor.dart';
 import 'interceptors/error_interceptor.dart';
@@ -20,30 +20,33 @@ class DioClient {
   /// 构建基础配置
   BaseOptions _buildBaseOptions() {
     return BaseOptions(
-      baseUrl: AppConstants.baseUrl,
-      connectTimeout: Duration(milliseconds: AppConstants.connectTimeout),
-      receiveTimeout: Duration(milliseconds: AppConstants.receiveTimeout),
-      sendTimeout: Duration(milliseconds: AppConstants.sendTimeout),
+      baseUrl: AppConfig.instance.apiBaseUrl,
+      connectTimeout: Duration(milliseconds: AppConfig.instance.apiTimeout),
+      receiveTimeout: Duration(milliseconds: AppConfig.instance.apiTimeout),
+      sendTimeout: Duration(milliseconds: AppConfig.instance.apiTimeout),
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
+        'X-Environment': AppConfig.instance.environment.name,
       },
     );
   }
 
   /// 设置拦截器
   void _setupInterceptors() {
-    // 日志拦截器
-    _dio.interceptors.add(
-      TalkerDioLogger(
-        talker: AppLogger.talker,
-        settings: const TalkerDioLoggerSettings(
-          printRequestHeaders: true,
-          printResponseHeaders: false,
-          printResponseMessage: true,
+    // 日志拦截器（仅在启用日志时添加）
+    if (AppConfig.instance.enableLogging) {
+      _dio.interceptors.add(
+        TalkerDioLogger(
+          talker: AppLogger.talker,
+          settings: const TalkerDioLoggerSettings(
+            printRequestHeaders: true,
+            printResponseHeaders: false,
+            printResponseMessage: true,
+          ),
         ),
-      ),
-    );
+      );
+    }
 
     // 认证拦截器
     _dio.interceptors.add(AuthInterceptor());

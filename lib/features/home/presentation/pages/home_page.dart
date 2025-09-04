@@ -5,15 +5,14 @@ import '../../../../core/extensions/context_extensions.dart';
 import '../../../../shared/providers/theme_provider.dart';
 import '../../../../shared/providers/locale_provider.dart';
 import '../../../../shared/widgets/loading_widget.dart';
+import '../../../../shared/widgets/environment_banner.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeModeProvider);
     final themeModeText = ref.watch(themeModeTextProvider);
-    final locale = ref.watch(localeProvider);
     final localeText = ref.watch(localeTextProvider);
 
     return Scaffold(
@@ -51,6 +50,10 @@ class HomePage extends ConsumerWidget {
 
             // 快捷操作卡片
             _buildQuickActionsCard(context),
+            const SizedBox(height: AppConstants.paddingMedium),
+
+            // 环境信息卡片（非正式环境显示）
+            const EnvironmentInfoCard(),
           ],
         ),
       ),

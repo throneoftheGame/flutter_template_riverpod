@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flutter Development",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define=ENVIRONMENT=development"
+      ],
+      "env": {
+        "ENVIRONMENT": "development"
+      }
+    },
+    {
+      "name": "Flutter Staging", 
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define=ENVIRONMENT=staging"
+      ],
+      "env": {
+        "ENVIRONMENT": "staging"
+      }
+    },
+    {
+      "name": "Flutter Production",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define=ENVIRONMENT=production"
+      ],
+      "env": {
+        "ENVIRONMENT": "production"
+      }
+    }
+  ]
+}

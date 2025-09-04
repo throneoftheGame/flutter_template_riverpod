@@ -3,9 +3,13 @@ import 'package:talker_flutter/talker_flutter.dart';
 class AppLogger {
   static late final Talker talker;
 
-  static Future<void> init() async {
+  static Future<void> init({bool enableLogging = true}) async {
     talker = TalkerFlutter.init(
-      settings: TalkerSettings(useConsoleLogs: true, maxHistoryItems: 1000),
+      settings: TalkerSettings(
+        useConsoleLogs: enableLogging,
+        maxHistoryItems: enableLogging ? 1000 : 0,
+        enabled: enableLogging,
+      ),
     );
   }
 
