@@ -1,0 +1,73 @@
+name: flutter_template_riverpod
+description: 'A Flutter project template with Riverpod, Dio, and SharedPreferences'
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI
+  cupertino_icons: ^1.0.4
+  google_fonts: ^6.3.1
+  flutter_spinkit: ^5.2.2
+  auto_size_text: ^3.0.0
+
+  # State Management - Riverpod
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+
+  # Network
+  dio: ^5.9.0
+  connectivity_plus: ^6.1.5
+
+  # Storage
+  shared_preferences: ^2.5.3
+
+  # Utils
+  intl: ^0.20.2
+  package_info_plus: ^8.3.1
+  device_info_plus: ^11.5.0
+  url_launcher: ^6.3.2
+
+  # Error Handling & Logging
+  talker_flutter: ^5.0.0
+  talker_dio_logger: ^5.0.0
+
+  # JSON
+  json_annotation: ^4.9.0
+
+  # Internationalization
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Code Generation
+  riverpod_generator: ^2.4.3
+  build_runner: ^2.4.14
+  json_serializable: ^6.9.5
+
+  # Linting
+  flutter_lints: ^6.0.0
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+
+  # fonts:
+  #   - family: CustomFont
+  #     fonts:
+  #       - asset: assets/fonts/CustomFont-Regular.ttf
+  #       - asset: assets/fonts/CustomFont-Bold.ttf
+  #         weight: 700
