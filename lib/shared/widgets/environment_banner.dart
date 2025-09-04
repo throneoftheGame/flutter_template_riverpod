@@ -8,9 +8,16 @@ class EnvironmentBanner extends StatelessWidget {
   const EnvironmentBanner({
     super.key,
     required this.child,
+    this.style = EnvironmentBannerStyle.topRight,
   });
 
   final Widget child;
+  final EnvironmentBannerStyle style;
+
+  /// 环境横幅样式
+  static const topRight = EnvironmentBannerStyle.topRight;
+  static const topLeft = EnvironmentBannerStyle.topLeft;
+  static const bottomRight = EnvironmentBannerStyle.bottomRight;
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +26,91 @@ class EnvironmentBanner extends StatelessWidget {
       return child;
     }
 
-    return Banner(
-      message: AppConfig.instance.environment.displayName,
-      location: BannerLocation.topEnd,
-      color: _getBannerColor(),
-      textStyle: const TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
-      ),
-      child: child,
+    // 使用 Stack 来确保环境标识不被遮挡
+    return Stack(
+      children: [
+        child,
+        // 环境标识横幅
+        _buildEnvironmentTag(context),
+      ],
     );
+  }
+
+  /// 构建环境标签
+  Widget _buildEnvironmentTag(BuildContext context) {
+    final statusBarHeight = MediaQuery.of(context).padding.top;
+    
+    return Positioned(
+      top: _getTopPosition(statusBarHeight),
+      left: _getLeftPosition(),
+      right: _getRightPosition(),
+      bottom: _getBottomPosition(),
+      child: IgnorePointer(
+        child: Material(
+          elevation: 4,
+          borderRadius: BorderRadius.circular(6),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
+              color: _getBannerColor(),
+              borderRadius: BorderRadius.circular(6),
+            ),
+            child: Text(
+              AppConfig.instance.environment.displayName,
+              style: const TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// 获取顶部位置
+  double? _getTopPosition(double statusBarHeight) {
+    switch (style) {
+      case EnvironmentBannerStyle.topRight:
+      case EnvironmentBannerStyle.topLeft:
+        return statusBarHeight + 10;
+      case EnvironmentBannerStyle.bottomRight:
+        return null;
+    }
+  }
+
+  /// 获取左侧位置
+  double? _getLeftPosition() {
+    switch (style) {
+      case EnvironmentBannerStyle.topLeft:
+        return 10;
+      case EnvironmentBannerStyle.topRight:
+      case EnvironmentBannerStyle.bottomRight:
+        return null;
+    }
+  }
+
+  /// 获取右侧位置
+  double? _getRightPosition() {
+    switch (style) {
+      case EnvironmentBannerStyle.topRight:
+      case EnvironmentBannerStyle.bottomRight:
+        return 10;
+      case EnvironmentBannerStyle.topLeft:
+        return null;
+    }
+  }
+
+  /// 获取底部位置
+  double? _getBottomPosition() {
+    switch (style) {
+      case EnvironmentBannerStyle.bottomRight:
+        return 100; // 避免与FAB冲突
+      case EnvironmentBannerStyle.topRight:
+      case EnvironmentBannerStyle.topLeft:
+        return null;
+    }
   }
 
   /// 根据环境获取横幅颜色
@@ -52,7 +133,7 @@ class EnvironmentInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final config = AppConfig.instance;
-    
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -61,10 +142,7 @@ class EnvironmentInfoCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(
-                  Icons.info_outline,
-                  color: _getEnvironmentColor(),
-                ),
+                Icon(Icons.info_outline, color: _getEnvironmentColor()),
                 const SizedBox(width: 8),
                 Text(
                   '环境信息',
@@ -93,7 +171,10 @@ class EnvironmentInfoCard extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               _buildInfoRow('性能叠加层', config.showPerformanceOverlay ? '是' : '否'),
-              _buildInfoRow('调试横幅', config.debugShowCheckedModeBanner ? '是' : '否'),
+              _buildInfoRow(
+                '调试横幅',
+                config.debugShowCheckedModeBanner ? '是' : '否',
+              ),
             ],
           ],
         ),
@@ -111,19 +192,13 @@ class EnvironmentInfoCard extends StatelessWidget {
             width: 80,
             child: Text(
               '$label:',
-              style: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 13,
-              ),
+              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
             ),
           ),
           Expanded(
             child: Text(
               value,
-              style: const TextStyle(
-                fontSize: 13,
-                color: Colors.grey,
-              ),
+              style: const TextStyle(fontSize: 13, color: Colors.grey),
             ),
           ),
         ],
@@ -167,11 +242,9 @@ class EnvironmentSwitchDialog extends StatelessWidget {
             Navigator.of(context).pop();
             // 这里可以添加环境切换逻辑
             // 实际项目中可能需要重启应用或显示提示
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('环境切换功能需要配合构建脚本使用'),
-              ),
-            );
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(const SnackBar(content: Text('环境切换功能需要配合构建脚本使用')));
           },
           child: const Text('确定'),
         ),
@@ -195,9 +268,7 @@ class QuickEnvironmentInfo extends StatelessWidget {
       decoration: BoxDecoration(
         color: _getEnvironmentColor().withOpacity(0.1),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: _getEnvironmentColor().withOpacity(0.3),
-        ),
+        border: Border.all(color: _getEnvironmentColor().withOpacity(0.3)),
       ),
       child: Text(
         AppConfig.instance.environment.displayName,
@@ -220,4 +291,14 @@ class QuickEnvironmentInfo extends StatelessWidget {
         return Colors.blue;
     }
   }
+}
+
+/// 环境横幅样式枚举
+enum EnvironmentBannerStyle {
+  /// 右上角
+  topRight,
+  /// 左上角
+  topLeft,
+  /// 右下角
+  bottomRight,
 }
