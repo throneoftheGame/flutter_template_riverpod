@@ -12,7 +12,6 @@ echo "📱 Building Development APK..."
 flutter build apk \
   --dart-define=ENVIRONMENT=development \
   --target=lib/main.dart \
-  --flavor=development \
   --debug \
   --build-name=1.0.0-dev \
   --build-number=1
@@ -26,7 +25,6 @@ echo "🧪 Building Staging APK..."
 flutter build apk \
   --dart-define=ENVIRONMENT=staging \
   --target=lib/main.dart \
-  --flavor=staging \
   --profile \
   --build-name=1.0.0-staging \
   --build-number=1
@@ -40,7 +38,6 @@ echo "🌟 Building Production APK..."
 flutter build apk \
   --dart-define=ENVIRONMENT=production \
   --target=lib/main.dart \
-  --flavor=production \
   --release \
   --build-name=1.0.0 \
   --build-number=1

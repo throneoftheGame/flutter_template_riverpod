@@ -10,8 +10,6 @@ export ENVIRONMENT=staging
 # 运行 Flutter 应用
 flutter run \
   --dart-define=ENVIRONMENT=staging \
-  --target=lib/main.dart \
-  --flavor=staging \
-  -t lib/main.dart
+  --target=lib/main.dart
 
 echo "✅ Staging environment started"
