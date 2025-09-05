@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'l10n/app_localizations.dart';
 
 import 'core/config/app_config.dart';
 import 'core/constants/app_constants.dart';
@@ -30,6 +31,7 @@ class MyApp extends ConsumerWidget {
       // 国际化配置
       locale: locale,
       localizationsDelegates: const [
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
@@ -58,10 +60,10 @@ class MyApp extends ConsumerWidget {
       brightness: Brightness.light,
       colorScheme: colorScheme,
       // 设置页面背景色 - 你可以选择以下几种方式：
-      // scaffoldBackgroundColor: colorScheme.surface, // 使用系统默认的surface颜色
+      scaffoldBackgroundColor: colorScheme.surface, // 使用系统默认的surface颜色
       // scaffoldBackgroundColor: Colors.grey[50], // 使用浅灰色背景
       // scaffoldBackgroundColor: const Color(0xFFF5F5F5), // 使用自定义的浅灰色
-      scaffoldBackgroundColor: Colors.white, // 使用纯白色背景
+      // scaffoldBackgroundColor: Colors.white, // 使用纯白色背景
       appBarTheme: const AppBarTheme(
         centerTitle: true,
         elevation: 0,

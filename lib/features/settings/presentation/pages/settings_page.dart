@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../../core/constants/app_constants.dart';
 import '../../../../core/extensions/context_extensions.dart';
 import '../../../../shared/providers/theme_provider.dart';
@@ -10,24 +11,25 @@ class SettingsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final themeMode = ref.watch(themeModeProvider);
-    final themeModeText = ref.watch(themeModeTextProvider);
+    final themeModeText = ref.watch(themeModeTextProvider(context));
     final locale = ref.watch(localeProvider);
-    final localeText = ref.watch(localeTextProvider);
+    final localeText = ref.watch(localeTextProvider(context));
 
     return Scaffold(
-      appBar: AppBar(title: const Text('设置'), centerTitle: true),
+      appBar: AppBar(title: Text(l10n.settings), centerTitle: true),
       body: ListView(
         children: [
           // 外观设置
-          _buildSectionHeader(context, '外观设置'),
-          _buildThemeModeTile(context, ref, themeMode, themeModeText),
-          _buildLanguageTile(context, ref, locale, localeText),
+          _buildSectionHeader(context, l10n.appearanceSettings),
+          _buildThemeModeTile(context, ref, themeMode, themeModeText, l10n),
+          _buildLanguageTile(context, ref, locale, localeText, l10n),
 
           const Divider(),
 
           // 账户设置
-          _buildSectionHeader(context, '账户设置'),
+          _buildSectionHeader(context, l10n.accountSettings),
           _buildSettingsTile(
             context,
             icon: Icons.person_outline,
@@ -148,10 +150,11 @@ class SettingsPage extends ConsumerWidget {
     WidgetRef ref,
     ThemeMode themeMode,
     String themeModeText,
+    AppLocalizations l10n,
   ) {
     return ListTile(
       leading: Icon(context.isDarkMode ? Icons.dark_mode : Icons.light_mode),
-      title: const Text('主题模式'),
+      title: Text(l10n.themeMode),
       subtitle: Text(themeModeText),
       trailing: const Icon(Icons.chevron_right),
       onTap: () => _showThemeModeDialog(context, ref, themeMode),
@@ -163,13 +166,14 @@ class SettingsPage extends ConsumerWidget {
     WidgetRef ref,
     Locale locale,
     String localeText,
+    AppLocalizations l10n,
   ) {
     return ListTile(
       leading: const Icon(Icons.language),
-      title: const Text('语言'),
+      title: Text(l10n.languageSettings),
       subtitle: Text(localeText),
       trailing: const Icon(Icons.chevron_right),
-      onTap: () => _showLanguageDialog(context, ref, locale),
+      onTap: () => _showLanguageDialog(context, ref, locale, l10n),
     );
   }
 
@@ -256,11 +260,12 @@ class SettingsPage extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
     Locale currentLocale,
+    AppLocalizations l10n,
   ) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('选择语言'),
+        title: Text(l10n.selectLanguage),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

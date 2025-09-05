@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../l10n/app_localizations.dart';
 import '../../core/constants/app_constants.dart';
 
 /// 主题模式状态管理
@@ -86,16 +87,20 @@ final isDarkModeProvider = Provider<bool>((ref) {
   }
 });
 
-/// 主题模式显示文本 Provider
-final themeModeTextProvider = Provider<String>((ref) {
+/// 主题模式显示文本 Provider - 需要 BuildContext
+final themeModeTextProvider = Provider.family<String, BuildContext>((
+  ref,
+  context,
+) {
   final themeMode = ref.watch(themeModeProvider);
+  final l10n = AppLocalizations.of(context)!;
 
   switch (themeMode) {
     case ThemeMode.light:
-      return '浅色模式';
+      return l10n.lightMode;
     case ThemeMode.dark:
-      return '深色模式';
+      return l10n.darkMode;
     case ThemeMode.system:
-      return '跟随系统';
+      return l10n.systemMode;
   }
 });

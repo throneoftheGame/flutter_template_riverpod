@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../../core/constants/app_constants.dart';
 import '../../../../core/extensions/context_extensions.dart';
 import '../../../../shared/providers/theme_provider.dart';
@@ -12,12 +13,13 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeModeText = ref.watch(themeModeTextProvider);
-    final localeText = ref.watch(localeTextProvider);
+    final l10n = AppLocalizations.of(context)!;
+    final themeModeText = ref.watch(themeModeTextProvider(context));
+    final localeText = ref.watch(localeTextProvider(context));
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Template'),
+        title: Text(l10n.appTitle),
         actions: [
           IconButton(
             onPressed: () {
@@ -33,23 +35,23 @@ class HomePage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // 欢迎卡片
-            _buildWelcomeCard(context),
+            _buildWelcomeCard(context, l10n),
             const SizedBox(height: AppConstants.paddingMedium),
 
             // 主题设置卡片
-            _buildThemeCard(context, ref, themeModeText),
+            _buildThemeCard(context, ref, themeModeText, l10n),
             const SizedBox(height: AppConstants.paddingMedium),
 
             // 语言设置卡片
-            _buildLanguageCard(context, ref, localeText),
+            _buildLanguageCard(context, ref, localeText, l10n),
             const SizedBox(height: AppConstants.paddingMedium),
 
             // 功能演示卡片
-            _buildDemoCard(context),
+            _buildDemoCard(context, l10n),
             const SizedBox(height: AppConstants.paddingMedium),
 
             // 快捷操作卡片
-            _buildQuickActionsCard(context),
+            _buildQuickActionsCard(context, l10n),
             const SizedBox(height: AppConstants.paddingMedium),
 
             // 环境信息卡片（非正式环境显示）
@@ -66,7 +68,7 @@ class HomePage extends ConsumerWidget {
     );
   }
 
-  Widget _buildWelcomeCard(BuildContext context) {
+  Widget _buildWelcomeCard(BuildContext context, AppLocalizations l10n) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(AppConstants.paddingMedium),
@@ -82,7 +84,7 @@ class HomePage extends ConsumerWidget {
                 ),
                 const SizedBox(width: AppConstants.paddingSmall),
                 Text(
-                  '欢迎使用',
+                  l10n.welcome,
                   style: context.textTheme.headlineSmall?.copyWith(
                     color: context.colorScheme.primary,
                     fontWeight: FontWeight.bold,
@@ -92,8 +94,7 @@ class HomePage extends ConsumerWidget {
             ),
             const SizedBox(height: AppConstants.paddingSmall),
             Text(
-              'Flutter Template 是一个基于 Riverpod + Dio + SharedPreferences 的快速开发模板，'
-              '集成了常用的功能模块和最佳实践，帮助您快速开始新项目的开发。',
+              l10n.welcomeMessage,
               style: context.textTheme.bodyMedium?.copyWith(
                 color: context.colorScheme.onSurface.withOpacity(0.7),
               ),
@@ -108,6 +109,7 @@ class HomePage extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
     String themeModeText,
+    AppLocalizations l10n,
   ) {
     return Card(
       child: ListTile(
@@ -115,7 +117,7 @@ class HomePage extends ConsumerWidget {
           context.isDarkMode ? Icons.dark_mode : Icons.light_mode,
           color: context.colorScheme.primary,
         ),
-        title: const Text('主题模式'),
+        title: Text(l10n.themeMode),
         subtitle: Text(themeModeText),
         trailing: const Icon(Icons.chevron_right),
         onTap: () {
@@ -129,11 +131,12 @@ class HomePage extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
     String localeText,
+    AppLocalizations l10n,
   ) {
     return Card(
       child: ListTile(
         leading: Icon(Icons.language, color: context.colorScheme.primary),
-        title: const Text('语言设置'),
+        title: Text(l10n.languageSettings),
         subtitle: Text(localeText),
         trailing: const Icon(Icons.chevron_right),
         onTap: () {
@@ -143,7 +146,7 @@ class HomePage extends ConsumerWidget {
     );
   }
 
-  Widget _buildDemoCard(BuildContext context) {
+  Widget _buildDemoCard(BuildContext context, AppLocalizations l10n) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(AppConstants.paddingMedium),
@@ -151,7 +154,7 @@ class HomePage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '功能演示',
+              l10n.featureDemo,
               style: context.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -162,20 +165,20 @@ class HomePage extends ConsumerWidget {
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      _showLoadingDemo(context);
+                      _showLoadingDemo(context, l10n);
                     },
                     icon: const Icon(Icons.refresh),
-                    label: const Text('加载演示'),
+                    label: Text(l10n.loadingDemo),
                   ),
                 ),
                 const SizedBox(width: AppConstants.paddingSmall),
                 Expanded(
                   child: OutlinedButton.icon(
                     onPressed: () {
-                      _showDialogDemo(context);
+                      _showDialogDemo(context, l10n);
                     },
                     icon: const Icon(Icons.info),
-                    label: const Text('对话框'),
+                    label: Text(l10n.dialog),
                   ),
                 ),
               ],
@@ -186,10 +189,10 @@ class HomePage extends ConsumerWidget {
                 Expanded(
                   child: FilledButton.icon(
                     onPressed: () {
-                      _showBottomSheetDemo(context);
+                      _showBottomSheetDemo(context, l10n);
                     },
                     icon: const Icon(Icons.vertical_align_bottom),
-                    label: const Text('底部弹框'),
+                    label: Text(l10n.bottomSheet),
                   ),
                 ),
                 const SizedBox(width: AppConstants.paddingSmall),
@@ -199,7 +202,7 @@ class HomePage extends ConsumerWidget {
                       context.pushNamed('/login');
                     },
                     icon: const Icon(Icons.login),
-                    label: const Text('登录页面'),
+                    label: Text(l10n.loginPage),
                   ),
                 ),
               ],
@@ -210,7 +213,7 @@ class HomePage extends ConsumerWidget {
     );
   }
 
-  Widget _buildQuickActionsCard(BuildContext context) {
+  Widget _buildQuickActionsCard(BuildContext context, AppLocalizations l10n) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(AppConstants.paddingMedium),
@@ -218,7 +221,7 @@ class HomePage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '快捷操作',
+              l10n.quickActions,
               style: context.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -234,20 +237,24 @@ class HomePage extends ConsumerWidget {
                 _buildQuickAction(
                   context,
                   icon: Icons.person,
-                  label: '个人中心',
-                  onTap: () => context.showSnackBar('个人中心功能开发中'),
+                  label: l10n.profile,
+                  onTap: () =>
+                      context.showSnackBar(l10n.profileFeatureInDevelopment),
                 ),
                 _buildQuickAction(
                   context,
                   icon: Icons.notifications,
-                  label: '通知',
-                  onTap: () => context.showSnackBar('通知功能开发中'),
+                  label: l10n.notifications,
+                  onTap: () => context.showSnackBar(
+                    l10n.notificationFeatureInDevelopment,
+                  ),
                 ),
                 _buildQuickAction(
                   context,
                   icon: Icons.help,
-                  label: '帮助',
-                  onTap: () => context.showSnackBar('帮助功能开发中'),
+                  label: l10n.help,
+                  onTap: () =>
+                      context.showSnackBar(l10n.helpFeatureInDevelopment),
                 ),
               ],
             ),
@@ -289,14 +296,14 @@ class HomePage extends ConsumerWidget {
     );
   }
 
-  void _showLoadingDemo(BuildContext context) {
+  void _showLoadingDemo(BuildContext context, AppLocalizations l10n) {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (context) => const Dialog(
+      builder: (context) => Dialog(
         child: Padding(
-          padding: EdgeInsets.all(AppConstants.paddingLarge),
-          child: LoadingWidget(message: '正在加载中...'),
+          padding: const EdgeInsets.all(AppConstants.paddingLarge),
+          child: LoadingWidget(message: l10n.loading),
         ),
       ),
     );
@@ -305,34 +312,37 @@ class HomePage extends ConsumerWidget {
     Future.delayed(const Duration(seconds: 3), () {
       if (context.mounted) {
         Navigator.of(context).pop();
-        context.showSuccessSnackBar('加载完成！');
+        context.showSuccessSnackBar(l10n.loadingComplete);
       }
     });
   }
 
-  void _showDialogDemo(BuildContext context) {
+  void _showDialogDemo(BuildContext context, AppLocalizations l10n) {
     context
-        .showConfirmDialog(title: '确认操作', content: '这是一个示例对话框，您确定要继续吗？')
+        .showConfirmDialog(
+          title: l10n.confirmOperation,
+          content: l10n.confirmDialogMessage,
+        )
         .then((result) {
           if (result == true) {
-            context.showSuccessSnackBar('您点击了确定');
+            context.showSuccessSnackBar(l10n.youClickedConfirm);
           } else if (result == false) {
-            context.showSnackBar('您点击了取消');
+            context.showSnackBar(l10n.youClickedCancel);
           }
         });
   }
 
-  void _showBottomSheetDemo(BuildContext context) {
+  void _showBottomSheetDemo(BuildContext context, AppLocalizations l10n) {
     context.showAppBottomSheet(
       child: Container(
         padding: const EdgeInsets.all(AppConstants.paddingLarge),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('底部弹框示例', style: context.textTheme.titleLarge),
+            Text(l10n.bottomSheetExample, style: context.textTheme.titleLarge),
             const SizedBox(height: AppConstants.paddingMedium),
             Text(
-              '这是一个从底部弹出的弹框，可以用来显示更多选项或表单内容。',
+              l10n.bottomSheetMessage,
               style: context.textTheme.bodyMedium,
               textAlign: TextAlign.center,
             ),
@@ -342,7 +352,7 @@ class HomePage extends ConsumerWidget {
                 Expanded(
                   child: OutlinedButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: const Text('取消'),
+                    child: Text(l10n.cancel),
                   ),
                 ),
                 const SizedBox(width: AppConstants.paddingMedium),
@@ -350,9 +360,9 @@ class HomePage extends ConsumerWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pop();
-                      context.showSuccessSnackBar('操作成功！');
+                      context.showSuccessSnackBar(l10n.operationSuccess);
                     },
-                    child: const Text('确定'),
+                    child: Text(l10n.confirm),
                   ),
                 ),
               ],

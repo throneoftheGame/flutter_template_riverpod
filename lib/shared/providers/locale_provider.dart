@@ -1,6 +1,7 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../l10n/app_localizations.dart';
 import '../../core/constants/app_constants.dart';
 
 /// 语言状态管理
@@ -48,16 +49,20 @@ final localeProvider = StateNotifierProvider<LocaleNotifier, Locale>(
   (ref) => LocaleNotifier(),
 );
 
-/// 当前语言显示文本 Provider
-final localeTextProvider = Provider<String>((ref) {
+/// 当前语言显示文本 Provider - 需要 BuildContext
+final localeTextProvider = Provider.family<String, BuildContext>((
+  ref,
+  context,
+) {
   final locale = ref.watch(localeProvider);
+  final l10n = AppLocalizations.of(context)!;
 
   switch (locale.languageCode) {
     case 'zh':
-      return '中文';
+      return l10n.chinese;
     case 'en':
     default:
-      return 'English';
+      return l10n.english;
   }
 });
 
