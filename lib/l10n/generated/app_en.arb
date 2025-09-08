@@ -1,0 +1,277 @@
+{
+  "@@locale": "en",
+  "login": "Login",
+  "@login": {
+    "description": "Login button text"
+  },
+  "loginTitle": "Login to Your Account",
+  "@loginTitle": {
+    "description": "Login page title"
+  },
+  "loginPage": "Login Page",
+  "@loginPage": {
+    "description": "Login page"
+  },
+  "accountEmailLogin": "Account/Email Login",
+  "@accountEmailLogin": {
+    "description": "Account or email login tab"
+  },
+  "phoneLogin": "Phone Login",
+  "@phoneLogin": {
+    "description": "Phone number login tab"
+  },
+  "accountEmail": "Account/Email",
+  "@accountEmail": {
+    "description": "Account or email input label"
+  },
+  "phoneNumber": "Phone Number",
+  "@phoneNumber": {
+    "description": "Phone number input label"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Password input label"
+  },
+  "forgotPassword": "Forgot Password?",
+  "@forgotPassword": {
+    "description": "Forgot password link text"
+  },
+  "noAccount": "No Account?",
+  "@noAccount": {
+    "description": "No account text"
+  },
+  "pleaseRegister": "Please Register",
+  "@pleaseRegister": {
+    "description": "Please register link text"
+  },
+  "pleaseEnterAccountOrEmail": "Please enter account or email",
+  "@pleaseEnterAccountOrEmail": {
+    "description": "Account/email validation error"
+  },
+  "pleaseEnterValidEmail": "Please enter a valid email address",
+  "@pleaseEnterValidEmail": {
+    "description": "Email format validation error"
+  },
+  "emailNotLinked": "This email is not linked to an account, please use account login!",
+  "@emailNotLinked": {
+    "description": "Email not linked error"
+  },
+  "accountNotRegistered": "This account is not registered, please register first!",
+  "@accountNotRegistered": {
+    "description": "Account not registered error"
+  },
+  "pleaseEnterPhoneNumber": "Please enter phone number",
+  "@pleaseEnterPhoneNumber": {
+    "description": "Phone number validation error"
+  },
+  "pleaseEnterDigitsPhone": "Please enter {digits}-digit phone number!",
+  "@pleaseEnterDigitsPhone": {
+    "description": "Phone number digits validation error",
+    "placeholders": {
+      "digits": {
+        "type": "int",
+        "description": "Required number of digits"
+      }
+    }
+  },
+  "phoneOnlyDigits": "Phone number can only contain digits",
+  "@phoneOnlyDigits": {
+    "description": "Phone number format error"
+  },
+  "phoneNotRegistered": "This phone number is not registered, please register!",
+  "@phoneNotRegistered": {
+    "description": "Phone not registered error"
+  },
+  "passwordMustContain": "Password must contain letters and numbers",
+  "@passwordMustContain": {
+    "description": "Password format validation error"
+  },
+  "pleaseEnterPassword": "Please enter password",
+  "@pleaseEnterPassword": {
+    "description": "Password required validation error"
+  },
+  "loginSuccess": "Login Successful!",
+  "@loginSuccess": {
+    "description": "Login success message"
+  },
+  "loginFailed": "Login Failed",
+  "@loginFailed": {
+    "description": "Login failed title"
+  },
+  "incorrectPassword": "Incorrect password, please try again!",
+  "@incorrectPassword": {
+    "description": "Incorrect password error"
+  },
+  "loginFailedError": "Login failed: {error}",
+  "@loginFailedError": {
+    "description": "Login failed with error message",
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "description": "Error message"
+      }
+    }
+  },
+  "forgotPasswordInDevelopment": "Forgot password feature is under development",
+  "@forgotPasswordInDevelopment": {
+    "description": "Forgot password development message"
+  },
+  "registerInDevelopment": "Registration feature is under development",
+  "@registerInDevelopment": {
+    "description": "Registration development message"
+  },
+  "appTitle": "Flutter Template",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading text"
+  },
+  "loadingComplete": "Loading complete!",
+  "@loadingComplete": {
+    "description": "Loading complete message"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button"
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Confirm button"
+  },
+  "operationSuccess": "Operation successful!",
+  "@operationSuccess": {
+    "description": "Operation success message"
+  },
+  "confirmOperation": "Confirm Operation",
+  "@confirmOperation": {
+    "description": "Confirm operation dialog title"
+  },
+  "confirmDialogMessage": "This is a sample dialog. Are you sure you want to continue?",
+  "@confirmDialogMessage": {
+    "description": "Confirmation dialog message"
+  },
+  "youClickedConfirm": "You clicked Confirm",
+  "@youClickedConfirm": {
+    "description": "Confirm button clicked message"
+  },
+  "youClickedCancel": "You clicked Cancel",
+  "@youClickedCancel": {
+    "description": "Cancel button clicked message"
+  },
+  "english": "English",
+  "@english": {
+    "description": "English language"
+  },
+  "chinese": "中文",
+  "@chinese": {
+    "description": "Chinese language"
+  },
+  "switchedToLanguage": "Switched to {language}",
+  "@switchedToLanguage": {
+    "description": "Language switch confirmation message",
+    "placeholders": {
+      "language": {
+        "type": "String",
+        "description": "The language name"
+      }
+    }
+  },
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Welcome greeting"
+  },
+  "welcomeMessage": "Flutter Template is a rapid development template based on Riverpod + Dio + SharedPreferences, integrating common functional modules and best practices to help you quickly start new project development.",
+  "@welcomeMessage": {
+    "description": "Welcome message description"
+  },
+  "featureDemo": "Feature Demo",
+  "@featureDemo": {
+    "description": "Feature demonstration"
+  },
+  "loadingDemo": "Loading Demo",
+  "@loadingDemo": {
+    "description": "Loading demonstration"
+  },
+  "dialog": "Dialog",
+  "@dialog": {
+    "description": "Dialog"
+  },
+  "bottomSheet": "Bottom Sheet",
+  "@bottomSheet": {
+    "description": "Bottom sheet"
+  },
+  "quickActions": "Quick Actions",
+  "@quickActions": {
+    "description": "Quick actions"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Personal profile"
+  },
+  "notifications": "Notifications",
+  "@notifications": {
+    "description": "Notifications"
+  },
+  "help": "Help",
+  "@help": {
+    "description": "Help"
+  },
+  "bottomSheetExample": "Bottom Sheet Example",
+  "@bottomSheetExample": {
+    "description": "Bottom sheet example title"
+  },
+  "bottomSheetMessage": "This is a bottom sheet that pops up from the bottom, which can be used to display more options or form content.",
+  "@bottomSheetMessage": {
+    "description": "Bottom sheet example message"
+  },
+  "profileFeatureInDevelopment": "Profile feature is in development",
+  "@profileFeatureInDevelopment": {
+    "description": "Profile feature development message"
+  },
+  "notificationFeatureInDevelopment": "Notification feature is in development",
+  "@notificationFeatureInDevelopment": {
+    "description": "Notification feature development message"
+  },
+  "helpFeatureInDevelopment": "Help feature is in development",
+  "@helpFeatureInDevelopment": {
+    "description": "Help feature development message"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings page title"
+  },
+  "themeMode": "Theme Mode",
+  "@themeMode": {
+    "description": "Theme mode setting"
+  },
+  "languageSettings": "Language Settings",
+  "@languageSettings": {
+    "description": "Language settings"
+  },
+  "appearanceSettings": "Appearance Settings",
+  "@appearanceSettings": {
+    "description": "Appearance settings section"
+  },
+  "accountSettings": "Account Settings",
+  "@accountSettings": {
+    "description": "Account settings section"
+  },
+  "selectLanguage": "Select Language",
+  "@selectLanguage": {
+    "description": "Select language dialog title"
+  },
+  "lightMode": "Light",
+  "@lightMode": {
+    "description": "Light theme mode"
+  },
+  "darkMode": "Dark",
+  "@darkMode": {
+    "description": "Dark theme mode"
+  },
+  "systemMode": "System",
+  "@systemMode": {
+    "description": "System theme mode"
+  }
+}

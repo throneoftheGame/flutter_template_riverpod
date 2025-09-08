@@ -9,10 +9,12 @@ class EnvironmentBanner extends StatelessWidget {
     super.key,
     required this.child,
     this.style = EnvironmentBannerStyle.topRight,
+    this.topOffset = 10,
   });
 
   final Widget child;
   final EnvironmentBannerStyle style;
+  final double topOffset;
 
   /// 环境横幅样式
   static const topRight = EnvironmentBannerStyle.topRight;
@@ -74,7 +76,7 @@ class EnvironmentBanner extends StatelessWidget {
     switch (style) {
       case EnvironmentBannerStyle.topRight:
       case EnvironmentBannerStyle.topLeft:
-        return statusBarHeight + 10;
+        return statusBarHeight + topOffset;
       case EnvironmentBannerStyle.bottomRight:
         return null;
     }

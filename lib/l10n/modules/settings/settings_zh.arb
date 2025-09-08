@@ -1,0 +1,13 @@
+{
+  "@@locale": "zh",
+  "settings": "设置",
+  "themeMode": "主题模式",
+  "languageSettings": "语言设置",
+  "appearanceSettings": "外观设置",
+  "accountSettings": "账户设置",
+  "selectLanguage": "选择语言",
+  "lightMode": "浅色",
+  "darkMode": "深色",
+  "systemMode": "跟随系统"
+}
+

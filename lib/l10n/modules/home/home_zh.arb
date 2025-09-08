@@ -1,0 +1,19 @@
+{
+  "@@locale": "zh",
+  "welcome": "欢迎使用",
+  "welcomeMessage": "Flutter Template 是一个基于 Riverpod + Dio + SharedPreferences 的快速开发模板，集成了常用的功能模块和最佳实践，帮助您快速开始新项目的开发。",
+  "featureDemo": "功能演示",
+  "loadingDemo": "加载演示",
+  "dialog": "对话框",
+  "bottomSheet": "底部弹框",
+  "quickActions": "快捷操作",
+  "profile": "个人中心",
+  "notifications": "通知",
+  "help": "帮助",
+  "bottomSheetExample": "底部弹框示例",
+  "bottomSheetMessage": "这是一个从底部弹出的弹框，可以用来显示更多选项或表单内容。",
+  "profileFeatureInDevelopment": "个人中心功能开发中",
+  "notificationFeatureInDevelopment": "通知功能开发中",
+  "helpFeatureInDevelopment": "帮助功能开发中"
+}
+

@@ -147,5 +147,131 @@
   "selectLanguage": "Select Language",
   "@selectLanguage": {
     "description": "Select language dialog title"
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Login button text"
+  },
+  "loginTitle": "Login to Your Account",
+  "@loginTitle": {
+    "description": "Login page title"
+  },
+  "accountEmailLogin": "Account/Email Login",
+  "@accountEmailLogin": {
+    "description": "Account or email login tab"
+  },
+  "phoneLogin": "Phone Login",
+  "@phoneLogin": {
+    "description": "Phone number login tab"
+  },
+  "accountEmail": "Account/Email",
+  "@accountEmail": {
+    "description": "Account or email input label"
+  },
+  "phoneNumber": "Phone Number",
+  "@phoneNumber": {
+    "description": "Phone number input label"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Password input label"
+  },
+  "forgotPassword": "Forgot Password?",
+  "@forgotPassword": {
+    "description": "Forgot password link text"
+  },
+  "noAccount": "No Account?",
+  "@noAccount": {
+    "description": "No account text"
+  },
+  "pleaseRegister": "Please Register",
+  "@pleaseRegister": {
+    "description": "Please register link text"
+  },
+  "switchedToLanguage": "Switched to {language}",
+  "@switchedToLanguage": {
+    "description": "Language switch confirmation message",
+    "placeholders": {
+      "language": {
+        "type": "String",
+        "description": "The language name"
+      }
+    }
+  },
+  "pleaseEnterAccountOrEmail": "Please enter account or email",
+  "@pleaseEnterAccountOrEmail": {
+    "description": "Account/email validation error"
+  },
+  "pleaseEnterValidEmail": "Please enter a valid email address",
+  "@pleaseEnterValidEmail": {
+    "description": "Email format validation error"
+  },
+  "emailNotLinked": "This email is not linked to an account, please use account login!",
+  "@emailNotLinked": {
+    "description": "Email not linked error"
+  },
+  "accountNotRegistered": "This account is not registered, please register first!",
+  "@accountNotRegistered": {
+    "description": "Account not registered error"
+  },
+  "pleaseEnterPhoneNumber": "Please enter phone number",
+  "@pleaseEnterPhoneNumber": {
+    "description": "Phone number validation error"
+  },
+  "pleaseEnterDigitsPhone": "Please enter {digits}-digit phone number!",
+  "@pleaseEnterDigitsPhone": {
+    "description": "Phone number digits validation error",
+    "placeholders": {
+      "digits": {
+        "type": "int",
+        "description": "Required number of digits"
+      }
+    }
+  },
+  "phoneOnlyDigits": "Phone number can only contain digits",
+  "@phoneOnlyDigits": {
+    "description": "Phone number format error"
+  },
+  "phoneNotRegistered": "This phone number is not registered, please register!",
+  "@phoneNotRegistered": {
+    "description": "Phone not registered error"
+  },
+  "passwordMustContain": "Password must contain letters and numbers",
+  "@passwordMustContain": {
+    "description": "Password format validation error"
+  },
+  "pleaseEnterPassword": "Please enter password",
+  "@pleaseEnterPassword": {
+    "description": "Password required validation error"
+  },
+  "loginSuccess": "Login Successful!",
+  "@loginSuccess": {
+    "description": "Login success message"
+  },
+  "loginFailed": "Login Failed",
+  "@loginFailed": {
+    "description": "Login failed title"
+  },
+  "incorrectPassword": "Incorrect password, please try again!",
+  "@incorrectPassword": {
+    "description": "Incorrect password error"
+  },
+  "loginFailedError": "Login failed: {error}",
+  "@loginFailedError": {
+    "description": "Login failed with error message",
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "description": "Error message"
+      }
+    }
+  },
+  "forgotPasswordInDevelopment": "Forgot password feature is under development",
+  "@forgotPasswordInDevelopment": {
+    "description": "Forgot password development message"
+  },
+  "registerInDevelopment": "Registration feature is under development",
+  "@registerInDevelopment": {
+    "description": "Registration development message"
   }
 }

@@ -1,0 +1,40 @@
+{
+  "@@locale": "en",
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings page title"
+  },
+  "themeMode": "Theme Mode",
+  "@themeMode": {
+    "description": "Theme mode setting"
+  },
+  "languageSettings": "Language Settings",
+  "@languageSettings": {
+    "description": "Language settings"
+  },
+  "appearanceSettings": "Appearance Settings",
+  "@appearanceSettings": {
+    "description": "Appearance settings section"
+  },
+  "accountSettings": "Account Settings",
+  "@accountSettings": {
+    "description": "Account settings section"
+  },
+  "selectLanguage": "Select Language",
+  "@selectLanguage": {
+    "description": "Select language dialog title"
+  },
+  "lightMode": "Light",
+  "@lightMode": {
+    "description": "Light theme mode"
+  },
+  "darkMode": "Dark",
+  "@darkMode": {
+    "description": "Dark theme mode"
+  },
+  "systemMode": "System",
+  "@systemMode": {
+    "description": "System theme mode"
+  }
+}
+

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'l10n/app_localizations.dart';
+import 'l10n/generated/app_localizations.dart';
 
 import 'core/config/app_config.dart';
 import 'core/constants/app_constants.dart';
@@ -40,20 +40,36 @@ class MyApp extends ConsumerWidget {
 
       // 路由配置
       onGenerateRoute: AppRouter.generateRoute,
-      initialRoute: AppRouter.home,
+      initialRoute: AppRouter.login,
 
       // 使用 builder 来包装环境横幅
       builder: (context, child) {
-        return EnvironmentBanner(child: child ?? const SizedBox.shrink());
+        return EnvironmentBanner(
+          // 增加顶部偏移，避免与自定义header冲突
+          topOffset: 70,
+          child: child ?? const SizedBox.shrink(),
+        );
       },
     );
   }
 
   ThemeData _buildLightTheme() {
-    final colorScheme = ColorScheme.fromSeed(
-      seedColor: AppConstants.primaryColor,
-      brightness: Brightness.light,
-    );
+    // 使用 fromSeed 生成基础颜色方案，然后覆盖 primary 颜色为精确的自定义颜色
+    final colorScheme =
+        ColorScheme.fromSeed(
+          seedColor: AppConstants.primaryColor,
+          brightness: Brightness.light,
+        ).copyWith(
+          // 覆盖 primary 颜色为精确的自定义颜色，确保显示效果与设计稿一致
+          primary: AppConstants.primaryColor,
+          // 调整相关颜色以保持视觉协调性
+          onPrimary: Colors.white, // primary 颜色上的文字颜色
+          // 调整 primary container 相关颜色，使其与自定义 primary 颜色协调
+          primaryContainer: AppConstants.primaryColor.withOpacity(
+            0.12,
+          ), // 浅色主题下的容器背景
+          onPrimaryContainer: AppConstants.primaryColor, // 容器上的文字颜色
+        );
 
     return ThemeData(
       useMaterial3: true,
@@ -79,10 +95,24 @@ class MyApp extends ConsumerWidget {
   }
 
   ThemeData _buildDarkTheme() {
-    final colorScheme = ColorScheme.fromSeed(
-      seedColor: AppConstants.primaryColor,
-      brightness: Brightness.dark,
-    );
+    // 使用 fromSeed 生成基础颜色方案，然后覆盖 primary 颜色为精确的自定义颜色
+    final colorScheme =
+        ColorScheme.fromSeed(
+          seedColor: AppConstants.primaryColor,
+          brightness: Brightness.dark,
+        ).copyWith(
+          // 覆盖 primary 颜色为精确的自定义颜色，确保显示效果与设计稿一致
+          primary: AppConstants.primaryColor,
+          // 调整相关颜色以保持视觉协调性
+          onPrimary: Colors.black, // 暗色主题下，primary 颜色上使用黑色文字以确保对比度
+          // 调整 primary container 相关颜色，使其与自定义 primary 颜色协调
+          primaryContainer: AppConstants.primaryColor.withOpacity(
+            0.24,
+          ), // 暗色主题下的容器背景，透明度更高
+          onPrimaryContainer: AppConstants.primaryColor.withOpacity(
+            0.87,
+          ), // 容器上的文字颜色，略透明
+        );
 
     return ThemeData(
       useMaterial3: true,

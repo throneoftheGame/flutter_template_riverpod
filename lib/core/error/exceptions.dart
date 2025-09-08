@@ -39,3 +39,8 @@ class ParseException extends AppException {
 class BusinessException extends AppException {
   const BusinessException(super.message, [super.code]);
 }
+
+/// 验证异常
+class ValidationException extends AppException {
+  const ValidationException(super.message, [super.code]);
+}

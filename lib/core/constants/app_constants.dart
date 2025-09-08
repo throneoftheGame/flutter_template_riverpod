@@ -6,7 +6,7 @@ class AppConstants {
   static const String appVersion = '1.0.0';
 
   // 主题颜色
-  static const Color primaryColor = Color.fromARGB(255, 160, 235, 8);
+  static const Color primaryColor = Color(0xFF81B910);
   static const Color secondaryColor = Color(0xFF03DAC6);
   static const Color errorColor = Color(0xFFB00020);
   static const Color successColor = Color.fromARGB(255, 63, 235, 69);

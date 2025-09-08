@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/config/app_config.dart';
 import 'core/config/app_environment.dart';
 import 'core/utils/logger.dart';
 import 'shared/providers/app_providers.dart';
+import 'features/auth/presentation/providers/auth_providers_config.dart';
 import 'app.dart';
 
 /// 主入口 - 默认开发环境
@@ -30,6 +32,9 @@ Future<void> mainWithEnvironment([AppEnvironment? environment]) async {
   // 初始化日志（根据环境配置）
   await AppLogger.init(enableLogging: AppConfig.instance.enableLogging);
 
+  // 初始化 SharedPreferences - 新架构需要
+  final prefs = await SharedPreferences.getInstance();
+
   // 设置系统UI样式
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -51,5 +56,16 @@ Future<void> mainWithEnvironment([AppEnvironment? environment]) async {
     observers.add(TalkerRiverpodObserver(talker: AppLogger.talker));
   }
 
-  runApp(ProviderScope(observers: observers, child: const MyApp()));
+  // 设置依赖注入覆盖 - 为新架构提供 SharedPreferences 实例
+  final overrides = <Override>[
+    sharedPreferencesProvider.overrideWithValue(prefs),
+  ];
+
+  runApp(
+    ProviderScope(
+      observers: observers,
+      overrides: overrides, // 添加依赖注入覆盖
+      child: const MyApp(),
+    ),
+  );
 }

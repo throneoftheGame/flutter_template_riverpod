@@ -18,7 +18,7 @@ import 'app_localizations_zh.dart';
 /// `supportedLocales` list. For example:
 ///
 /// ```dart
-/// import 'l10n/app_localizations.dart';
+/// import 'generated/app_localizations.dart';
 ///
 /// return MaterialApp(
 ///   localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -98,59 +98,17 @@ abstract class AppLocalizations {
     Locale('zh'),
   ];
 
-  /// The title of the application
+  /// Login button text
   ///
   /// In en, this message translates to:
-  /// **'Flutter Template'**
-  String get appTitle;
+  /// **'Login'**
+  String get login;
 
-  /// Welcome greeting
+  /// Login page title
   ///
   /// In en, this message translates to:
-  /// **'Welcome'**
-  String get welcome;
-
-  /// Welcome message description
-  ///
-  /// In en, this message translates to:
-  /// **'Flutter Template is a rapid development template based on Riverpod + Dio + SharedPreferences, integrating common functional modules and best practices to help you quickly start new project development.'**
-  String get welcomeMessage;
-
-  /// Theme mode setting
-  ///
-  /// In en, this message translates to:
-  /// **'Theme Mode'**
-  String get themeMode;
-
-  /// Language settings
-  ///
-  /// In en, this message translates to:
-  /// **'Language Settings'**
-  String get languageSettings;
-
-  /// Feature demonstration
-  ///
-  /// In en, this message translates to:
-  /// **'Feature Demo'**
-  String get featureDemo;
-
-  /// Loading demonstration
-  ///
-  /// In en, this message translates to:
-  /// **'Loading Demo'**
-  String get loadingDemo;
-
-  /// Dialog
-  ///
-  /// In en, this message translates to:
-  /// **'Dialog'**
-  String get dialog;
-
-  /// Bottom sheet
-  ///
-  /// In en, this message translates to:
-  /// **'Bottom Sheet'**
-  String get bottomSheet;
+  /// **'Login to Your Account'**
+  String get loginTitle;
 
   /// Login page
   ///
@@ -158,29 +116,155 @@ abstract class AppLocalizations {
   /// **'Login Page'**
   String get loginPage;
 
-  /// Quick actions
+  /// Account or email login tab
   ///
   /// In en, this message translates to:
-  /// **'Quick Actions'**
-  String get quickActions;
+  /// **'Account/Email Login'**
+  String get accountEmailLogin;
 
-  /// Personal profile
+  /// Phone number login tab
   ///
   /// In en, this message translates to:
-  /// **'Profile'**
-  String get profile;
+  /// **'Phone Login'**
+  String get phoneLogin;
 
-  /// Notifications
+  /// Account or email input label
   ///
   /// In en, this message translates to:
-  /// **'Notifications'**
-  String get notifications;
+  /// **'Account/Email'**
+  String get accountEmail;
 
-  /// Help
+  /// Phone number input label
   ///
   /// In en, this message translates to:
-  /// **'Help'**
-  String get help;
+  /// **'Phone Number'**
+  String get phoneNumber;
+
+  /// Password input label
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// Forgot password link text
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get forgotPassword;
+
+  /// No account text
+  ///
+  /// In en, this message translates to:
+  /// **'No Account?'**
+  String get noAccount;
+
+  /// Please register link text
+  ///
+  /// In en, this message translates to:
+  /// **'Please Register'**
+  String get pleaseRegister;
+
+  /// Account/email validation error
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter account or email'**
+  String get pleaseEnterAccountOrEmail;
+
+  /// Email format validation error
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get pleaseEnterValidEmail;
+
+  /// Email not linked error
+  ///
+  /// In en, this message translates to:
+  /// **'This email is not linked to an account, please use account login!'**
+  String get emailNotLinked;
+
+  /// Account not registered error
+  ///
+  /// In en, this message translates to:
+  /// **'This account is not registered, please register first!'**
+  String get accountNotRegistered;
+
+  /// Phone number validation error
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter phone number'**
+  String get pleaseEnterPhoneNumber;
+
+  /// Phone number digits validation error
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter {digits}-digit phone number!'**
+  String pleaseEnterDigitsPhone(int digits);
+
+  /// Phone number format error
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number can only contain digits'**
+  String get phoneOnlyDigits;
+
+  /// Phone not registered error
+  ///
+  /// In en, this message translates to:
+  /// **'This phone number is not registered, please register!'**
+  String get phoneNotRegistered;
+
+  /// Password format validation error
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain letters and numbers'**
+  String get passwordMustContain;
+
+  /// Password required validation error
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter password'**
+  String get pleaseEnterPassword;
+
+  /// Login success message
+  ///
+  /// In en, this message translates to:
+  /// **'Login Successful!'**
+  String get loginSuccess;
+
+  /// Login failed title
+  ///
+  /// In en, this message translates to:
+  /// **'Login Failed'**
+  String get loginFailed;
+
+  /// Incorrect password error
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect password, please try again!'**
+  String get incorrectPassword;
+
+  /// Login failed with error message
+  ///
+  /// In en, this message translates to:
+  /// **'Login failed: {error}'**
+  String loginFailedError(String error);
+
+  /// Forgot password development message
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password feature is under development'**
+  String get forgotPasswordInDevelopment;
+
+  /// Registration development message
+  ///
+  /// In en, this message translates to:
+  /// **'Registration feature is under development'**
+  String get registerInDevelopment;
+
+  /// The title of the application
+  ///
+  /// In en, this message translates to:
+  /// **'Flutter Template'**
+  String get appTitle;
 
   /// Loading text
   ///
@@ -193,6 +277,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Loading complete!'**
   String get loadingComplete;
+
+  /// Cancel button
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// Confirm button
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirm;
+
+  /// Operation success message
+  ///
+  /// In en, this message translates to:
+  /// **'Operation successful!'**
+  String get operationSuccess;
 
   /// Confirm operation dialog title
   ///
@@ -218,6 +320,84 @@ abstract class AppLocalizations {
   /// **'You clicked Cancel'**
   String get youClickedCancel;
 
+  /// English language
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get english;
+
+  /// Chinese language
+  ///
+  /// In en, this message translates to:
+  /// **'中文'**
+  String get chinese;
+
+  /// Language switch confirmation message
+  ///
+  /// In en, this message translates to:
+  /// **'Switched to {language}'**
+  String switchedToLanguage(String language);
+
+  /// Welcome greeting
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
+
+  /// Welcome message description
+  ///
+  /// In en, this message translates to:
+  /// **'Flutter Template is a rapid development template based on Riverpod + Dio + SharedPreferences, integrating common functional modules and best practices to help you quickly start new project development.'**
+  String get welcomeMessage;
+
+  /// Feature demonstration
+  ///
+  /// In en, this message translates to:
+  /// **'Feature Demo'**
+  String get featureDemo;
+
+  /// Loading demonstration
+  ///
+  /// In en, this message translates to:
+  /// **'Loading Demo'**
+  String get loadingDemo;
+
+  /// Dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Dialog'**
+  String get dialog;
+
+  /// Bottom sheet
+  ///
+  /// In en, this message translates to:
+  /// **'Bottom Sheet'**
+  String get bottomSheet;
+
+  /// Quick actions
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Actions'**
+  String get quickActions;
+
+  /// Personal profile
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// Notifications
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// Help
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get help;
+
   /// Bottom sheet example title
   ///
   /// In en, this message translates to:
@@ -229,24 +409,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This is a bottom sheet that pops up from the bottom, which can be used to display more options or form content.'**
   String get bottomSheetMessage;
-
-  /// Cancel button
-  ///
-  /// In en, this message translates to:
-  /// **'Cancel'**
-  String get cancel;
-
-  /// Confirm button
-  ///
-  /// In en, this message translates to:
-  /// **'Confirm'**
-  String get confirm;
-
-  /// Operation success message
-  ///
-  /// In en, this message translates to:
-  /// **'Operation successful!'**
-  String get operationSuccess;
 
   /// Profile feature development message
   ///
@@ -266,41 +428,23 @@ abstract class AppLocalizations {
   /// **'Help feature is in development'**
   String get helpFeatureInDevelopment;
 
-  /// Light theme mode
-  ///
-  /// In en, this message translates to:
-  /// **'Light'**
-  String get lightMode;
-
-  /// Dark theme mode
-  ///
-  /// In en, this message translates to:
-  /// **'Dark'**
-  String get darkMode;
-
-  /// System theme mode
-  ///
-  /// In en, this message translates to:
-  /// **'System'**
-  String get systemMode;
-
-  /// English language
-  ///
-  /// In en, this message translates to:
-  /// **'English'**
-  String get english;
-
-  /// Chinese language
-  ///
-  /// In en, this message translates to:
-  /// **'中文'**
-  String get chinese;
-
   /// Settings page title
   ///
   /// In en, this message translates to:
   /// **'Settings'**
   String get settings;
+
+  /// Theme mode setting
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Mode'**
+  String get themeMode;
+
+  /// Language settings
+  ///
+  /// In en, this message translates to:
+  /// **'Language Settings'**
+  String get languageSettings;
 
   /// Appearance settings section
   ///
@@ -319,6 +463,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select Language'**
   String get selectLanguage;
+
+  /// Light theme mode
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get lightMode;
+
+  /// Dark theme mode
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get darkMode;
+
+  /// System theme mode
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get systemMode;
 }
 
 class _AppLocalizationsDelegate

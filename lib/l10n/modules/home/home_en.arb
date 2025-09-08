@@ -1,0 +1,64 @@
+{
+  "@@locale": "en",
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Welcome greeting"
+  },
+  "welcomeMessage": "Flutter Template is a rapid development template based on Riverpod + Dio + SharedPreferences, integrating common functional modules and best practices to help you quickly start new project development.",
+  "@welcomeMessage": {
+    "description": "Welcome message description"
+  },
+  "featureDemo": "Feature Demo",
+  "@featureDemo": {
+    "description": "Feature demonstration"
+  },
+  "loadingDemo": "Loading Demo",
+  "@loadingDemo": {
+    "description": "Loading demonstration"
+  },
+  "dialog": "Dialog",
+  "@dialog": {
+    "description": "Dialog"
+  },
+  "bottomSheet": "Bottom Sheet",
+  "@bottomSheet": {
+    "description": "Bottom sheet"
+  },
+  "quickActions": "Quick Actions",
+  "@quickActions": {
+    "description": "Quick actions"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Personal profile"
+  },
+  "notifications": "Notifications",
+  "@notifications": {
+    "description": "Notifications"
+  },
+  "help": "Help",
+  "@help": {
+    "description": "Help"
+  },
+  "bottomSheetExample": "Bottom Sheet Example",
+  "@bottomSheetExample": {
+    "description": "Bottom sheet example title"
+  },
+  "bottomSheetMessage": "This is a bottom sheet that pops up from the bottom, which can be used to display more options or form content.",
+  "@bottomSheetMessage": {
+    "description": "Bottom sheet example message"
+  },
+  "profileFeatureInDevelopment": "Profile feature is in development",
+  "@profileFeatureInDevelopment": {
+    "description": "Profile feature development message"
+  },
+  "notificationFeatureInDevelopment": "Notification feature is in development",
+  "@notificationFeatureInDevelopment": {
+    "description": "Notification feature development message"
+  },
+  "helpFeatureInDevelopment": "Help feature is in development",
+  "@helpFeatureInDevelopment": {
+    "description": "Help feature development message"
+  }
+}
+

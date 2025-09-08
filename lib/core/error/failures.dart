@@ -53,3 +53,8 @@ class BusinessFailure extends Failure {
 class UnknownFailure extends Failure {
   const UnknownFailure(super.message, [super.code]);
 }
+
+/// 验证失败
+class ValidationFailure extends Failure {
+  const ValidationFailure(super.message, [super.code]);
+}
